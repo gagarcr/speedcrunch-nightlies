@@ -1,0 +1,38 @@
+{% extends "navbar.html" %}
+
+{% block navcontent %}
+<div class="collapse navbar-collapse nav-collapse">
+  <ul class="nav navbar-nav">
+    <li><a href="{{ pathto('index') }}"><i class="fa fa-home"></i>&nbsp;{{  _('Home') }}</a></li>
+    <li><a href="{{ pathto('download') }}"><i class="fa fa-download"></i>&nbsp;{{  _('Get It') }}</a></li>
+    <li><a href="{{ pathto('introduction') }}"><i class="fa fa-book"></i>&nbsp;{{  _('Documentation') }}</a></li>
+    <li class="dropdown">
+      <a role="button"
+         id="languageSelector"
+         class="dropdown-toggle"
+         data-toggle="dropdown"
+         data-target="#"
+         href=""><i class="fa fa-user"></i>&nbsp;  {{_('Help')}}<b class="caret"></b></a>
+      <ul class="dropdown-menu">                                      
+       <li> <a href="https://bitbucket.org/heldercorreia/speedcrunch/issues/new"> <i class="fa fa-bug"></i>&nbsp;{{ _('Report Bug / Request Feature') }} </a></li>
+       <li> <a href="https://www.facebook.com/groups/1783793218546797/"> <i class="fa fa-facebook"></i>&nbsp;{{ _('Join Facebook Group') }} </a></li>
+       <li> <a href="https://groups.google.com/forum/#!forum/speedcrunch"> <i class="fa fa-at"></i>&nbsp;{{ _('Send Email') }} </a></li>
+       <li> <a href="https://www.transifex.com/heldercorreia/speedcrunch/"> <i class="fa fa-language"></i>&nbsp;{{ _('Translate') }} </a></li>
+       <li> <a href="https://bitbucket.org/heldercorreia/speedcrunch"> <i class="fa fa-git"></i>&nbsp;{{ _('Code') }} </a></li>
+       <li> <a href="{{ pathto('donate') }}"> <i class="fa fa-money"></i>&nbsp;{{ _('Donate') }} </a></li>
+      </ul>
+    </li>
+
+    {% block navbarextra %}
+    {% endblock %}
+    {% if theme_source_link_position == "nav" %}
+      <li class="hidden-sm">{% include "sourcelink.html" %}</li>
+    {% endif %}
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+  {% block language_selector %}
+    {% include "language.html" %}
+  {% endblock %}
+  </ul>
+</div>
+{% endblock %}

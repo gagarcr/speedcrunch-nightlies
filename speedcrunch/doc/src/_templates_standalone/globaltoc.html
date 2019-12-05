@@ -1,0 +1,11 @@
+<li class="dropdown globaltoc-container">
+  {# Changed the label of this link to 'Navigation' so it can be translated from here. #}
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="{{ pathto(master_doc) }}">{{ _('Navigation') }} <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc">{{ toctree(maxdepth=theme_globaltoc_depth|toint, collapse=False, includehidden=theme_globaltoc_includehidden|tobool) }}</ul>
+</li>
